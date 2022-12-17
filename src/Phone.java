@@ -9,18 +9,19 @@ public class Phone {
         return number;
     }
 
-    private boolean networkRegistration(String number) {
+    private boolean networkRegistration(Phone number) {
         return (Network.getPhone().contains(number));
     }
 
-    public void outgoingCall(String outgoingNumber) {
-        if (!networkRegistration(number)) {
-            System.out.println(number + " has not registration in the network");
+    public void outgoingCall(Phone outgoingNumber) {
+        if (!networkRegistration(this)) {
+            System.out.println(this.number + " has not registration in the network");
             return;
         } else if (!networkRegistration(outgoingNumber)) {
-            System.out.println(outgoingNumber + " has not registration in the network");
+            System.out.println(outgoingNumber.number + " has not registration in the network");
             return;
         }
+        System.out.println("Calling to " + outgoingNumber.number);
         incomingCall(number);
     }
 
